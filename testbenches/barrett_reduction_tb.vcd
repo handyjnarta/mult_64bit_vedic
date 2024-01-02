@@ -1,0 +1,45 @@
+$date
+	Tue Jan  2 21:56:12 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module barrett_reduction_tb $end
+$var wire 64 ! t [63:0] $end
+$var reg 64 " q [63:0] $end
+$var reg 128 # z [127:0] $end
+$scope module uut $end
+$var wire 64 $ q [63:0] $end
+$var wire 128 % z [127:0] $end
+$var wire 8 & r [7:0] $end
+$var wire 16 ' mu [15:0] $end
+$var wire 128 ( m3 [127:0] $end
+$var wire 128 ) m2 [127:0] $end
+$var wire 128 * m1 [127:0] $end
+$var wire 7 + k [6:0] $end
+$var reg 64 , t [63:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b101101001000 ,
+b1101 +
+b110111101 *
+b0 )
+b0 (
+b0 '
+b0 &
+b1101111011011100100011 %
+b1111000000001 $
+b1101111011011100100011 #
+b1111000000001 "
+b101101001000 !
+$end
+#10000
