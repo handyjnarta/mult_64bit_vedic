@@ -1,0 +1,63 @@
+$date
+	Tue Jan  2 18:16:01 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module half_adder_tb $end
+$var wire 1 ! Sum $end
+$var wire 1 " Cout $end
+$var reg 1 # A $end
+$var reg 1 $ B $end
+$scope module uut $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 ! Cout $end
+$var wire 1 " Sum $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+0#
+0"
+0!
+$end
+#2000
+1"
+1$
+#4000
+0$
+1#
+#6000
+0"
+1!
+1$
+#8000
+0!
+0$
+0#
+#10000
+1"
+1$
+#12000
+0$
+1#
+#14000
+0"
+1!
+1$
+#16000
+0!
+0$
+0#
+#18000
+1"
+1$
+#20000
+0$
+1#

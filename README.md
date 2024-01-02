@@ -17,6 +17,8 @@ The below trees describes the structure of this repostitory.
 │
 ├── rtl/
 │
+├── scripts/
+│
 ├── testbenches/
 │
 └── README.md
@@ -27,4 +29,5 @@ The below trees describes the structure of this repostitory.
 | Directory   | Description      |
 |:------------|:-----------------|
 | rtl         | This directory typically contains your Verilog/SystemVerilog RTL (Register-Transfer Level) code, which represents the hardware description of your digital design.  |
+| scripts     | This directory is dedicated to store script python.  |
 | testbenches | This directory contains testbench files that you use to simulate and verify the functionality of your RTL code. Testbenches are used to apply inputs to your design and observe the outputs.  |

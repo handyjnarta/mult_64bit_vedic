@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "../rtl/half_adder.v"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -35,6 +36,9 @@ module half_adder_tb();
     // initial data
     initial
     begin
+        $dumpfile("half_adder_tb.vcd");
+        $dumpvars(0, half_adder_tb);
+        
         A = 0;
         B = 0;
     end
