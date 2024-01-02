@@ -1,9 +1,0 @@
-Vivado Simulator v2023.2
-Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: G:/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L secureip --snapshot mult_64bit_tb_func_synth xil_defaultlib.mult_64bit_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
-ERROR: [VRFC 10-2063] Module <mult_64bit> not found while processing module instance <uut> [C:/Users/saubu/Documents/vivado project/mult_64bit_vedic/mult_64bit_vedic.srcs/sim_1/new/mult_64bit_tb.v:31]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

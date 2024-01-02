@@ -1,7 +1,0 @@
-# compile verilog/system verilog design source files
-verilog xil_defaultlib  \
-"mult_64bit_tb_func_synth.v" \
-"../../../../../mult_64bit_vedic.srcs/sim_1/new/mult_64bit_tb.v" \
-
-# Do not sort compile order
-nosort
