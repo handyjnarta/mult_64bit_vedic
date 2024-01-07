@@ -1,4 +1,20 @@
 `timescale 1ns / 1ps
+`include "../rtl/full_adder.v"
+`include "../rtl/full_adder4bit.v"
+`include "../rtl/ha.v"
+`include "../rtl/half_adder.v"
+`include "../rtl/mult_2bit.v"
+`include "../rtl/mult_4bit.v"
+`include "../rtl/mult_8bit.v"
+`include "../rtl/mult_16bit.v"
+`include "../rtl/mult_32bit.v"
+`include "../rtl/mult_64bit.v"
+`include "../rtl/rca_4bit.v"
+`include "../rtl/rca_8bit.v"
+`include "../rtl/rca_16bit.v"
+`include "../rtl/rca_32bit.v"
+`include "../rtl/rca_64bit.v"
+
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -32,6 +48,8 @@ module mult_64bit_tb();
     
     initial
     begin
+        $dumpfile("mult_64bit_tb.vcd");
+        $dumpvars(0,mult_64bit_tb);
         A = 64'b0000000000000000000000000000000000000000000000000000000000000000;
         B = 64'b0000000000000000000000000000000000000000000000000000000000000000;
     end

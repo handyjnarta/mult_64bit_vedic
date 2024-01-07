@@ -8,13 +8,13 @@ module Barrett_Reduction(
 
     // Pre-computation
     // k = math.ceil(math.log2(q)) # number of bits in q
-    wire [6:0] k = $clog2(q);
+    wire [63:0] k = $clog2(q);
 
     // r = 2**k
-    wire [7:0] r = 1 << k;
+    wire [63:0] r = 1 << k;
 
     // mu = r**2 // q
-    wire [15:0] mu = r * r / q;
+    wire [63:0] mu = r * r / q;
 
     // # Multiplication
     // z = a * b
