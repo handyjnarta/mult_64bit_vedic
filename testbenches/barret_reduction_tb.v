@@ -6,6 +6,8 @@ module barrett_reduction_tb;
     // Inputs
     reg [127:0] z;
     reg [63:0] q;
+    reg [7:0] mu,
+    reg [7:0] r,
 
     // Outputs
     wire [63:0] t;
@@ -14,6 +16,8 @@ module barrett_reduction_tb;
     Barrett_Reduction uut (
         .z(z),
         .q(q),
+        .mu(mu),
+        .r(r),
         .t(t)
     );
 
@@ -25,6 +29,8 @@ module barrett_reduction_tb;
         // Test case 1
         z = 3651363; // Replace with your desired input value
         q = 7681; // Replace with your desired input value
+        r = 8192;
+        mu = 8736;
 
         // Add a delay to allow the computation to complete
         #10;

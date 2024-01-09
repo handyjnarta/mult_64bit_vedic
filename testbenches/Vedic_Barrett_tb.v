@@ -23,6 +23,8 @@ module Vedic_Barrett_tb;
     reg [63:0] a;
     reg [63:0] b;
     reg [63:0] q;
+    reg [7:0] mu;
+    reg [13:0] r;
 
     // Outputs
     wire [63:0] t;
@@ -32,6 +34,8 @@ module Vedic_Barrett_tb;
         .a(a),
         .b(b),
         .q(q),
+        .mu(mu),
+        .r(r),
         .t(t)
     );
 
@@ -44,6 +48,8 @@ module Vedic_Barrett_tb;
         a = 1467; // Replace with your desired input value
         b = 2489;
         q = 7681; // Replace with your desired input value
+        mu = 8736;
+        r = 8192;
 
         // Add a delay to allow the computation to complete
         #10;
