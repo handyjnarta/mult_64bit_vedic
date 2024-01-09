@@ -23,8 +23,8 @@ module Vedic_Barrett_tb;
     reg [63:0] a;
     reg [63:0] b;
     reg [63:0] q;
-    reg [7:0] mu;
-    reg [13:0] r;
+    reg [30:0] mu;
+    reg [7:0] k;
 
     // Outputs
     wire [63:0] t;
@@ -35,7 +35,7 @@ module Vedic_Barrett_tb;
         .b(b),
         .q(q),
         .mu(mu),
-        .r(r),
+        .k(k),
         .t(t)
     );
 
@@ -45,11 +45,11 @@ module Vedic_Barrett_tb;
         $dumpfile("Vedic_Barrett_tb.vcd");
         $dumpvars(0,Vedic_Barrett_tb);
         // Test case 1
-        a = 1467; // Replace with your desired input value
-        b = 2489;
-        q = 7681; // Replace with your desired input value
-        mu = 8736;
-        r = 8192;
+        a = 146712; // Replace with your desired input value
+        b = 248912;
+        q = 768112; // Replace with your desired input value
+        mu = 1431447;
+        k = 20;
 
         // Add a delay to allow the computation to complete
         #10;
