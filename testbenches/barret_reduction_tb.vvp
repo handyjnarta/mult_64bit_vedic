@@ -1,93 +1,88 @@
-#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
-:ivl_version "12.0 (stable)";
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
 :ivl_delay_selection "TYPICAL";
 :vpi_time_precision - 12;
-:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
-:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
-:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
-:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
-:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
-S_0x12da041e0 .scope module, "barrett_reduction_tb" "barrett_reduction_tb" 2 4;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+S_000002c72297bff0 .scope module, "barrett_reduction_tb" "barrett_reduction_tb" 2 4;
  .timescale -9 -12;
-v0x12ce23c20_0 .var "q", 63 0;
-v0x12ce23cb0_0 .net "t", 63 0, v0x12ce23a70_0;  1 drivers
-v0x12ce23d40_0 .var "z", 127 0;
-S_0x12ce11e30 .scope module, "uut" "Barrett_Reduction" 2 14, 3 3 0, S_0x12da041e0;
+v000002c7229c3550_0 .var "mu", 7 0;
+v000002c7229c3d20_0 .var "q", 63 0;
+v000002c7229c3dc0_0 .var "r", 13 0;
+v000002c7229c3aa0_0 .net "t", 63 0, v000002c72297e5d0_0;  1 drivers
+v000002c7229c3a00_0 .var "z", 127 0;
+S_000002c72297e300 .scope module, "uut" "Barrett_Reduction" 2 16, 3 3 0, S_000002c72297bff0;
  .timescale -9 -12;
     .port_info 0 /INPUT 128 "z";
     .port_info 1 /INPUT 64 "q";
-    .port_info 2 /OUTPUT 64 "t";
-v0x12ce11290_0 .net *"_ivl_1", 31 0, L_0x12ce23e10;  1 drivers
-v0x12ce23230_0 .net *"_ivl_14", 127 0, L_0x12ce24450;  1 drivers
-L_0x130078058 .functor BUFT 1, C4<0000000000000000000000000000000000000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
-v0x12ce232e0_0 .net *"_ivl_17", 63 0, L_0x130078058;  1 drivers
-L_0x130078010 .functor BUFT 1, C4<0000000000000000000000000000000000000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
-v0x12ce233a0_0 .net/2s *"_ivl_4", 63 0, L_0x130078010;  1 drivers
-v0x12ce23450_0 .net *"_ivl_9", 63 0, L_0x12ce24180;  1 drivers
-v0x12ce23540_0 .net "k", 63 0, L_0x12ce23f10;  1 drivers
-v0x12ce235f0_0 .net "m1", 127 0, L_0x12ce24370;  1 drivers
-v0x12ce236a0_0 .net "m2", 127 0, L_0x12ce245b0;  1 drivers
-v0x12ce23750_0 .net "m3", 127 0, L_0x12ce246d0;  1 drivers
-v0x12ce23860_0 .net "mu", 63 0, L_0x12ce24260;  1 drivers
-v0x12ce23910_0 .net "q", 63 0, v0x12ce23c20_0;  1 drivers
-v0x12ce239c0_0 .net "r", 63 0, L_0x12ce24040;  1 drivers
-v0x12ce23a70_0 .var "t", 63 0;
-v0x12ce23b20_0 .net "z", 127 0, v0x12ce23d40_0;  1 drivers
-E_0x12ce0a930 .event anyedge, v0x12ce23a70_0, v0x12ce23910_0;
-E_0x12ce0c5c0 .event anyedge, v0x12ce23b20_0, v0x12ce23750_0, v0x12ce23910_0;
-L_0x12ce23e10 .sfunc 3 11 "$clog2", "v32v64", v0x12ce23c20_0;
-L_0x12ce23f10 .extend/s 64, L_0x12ce23e10;
-L_0x12ce24040 .shift/l 64, L_0x130078010, L_0x12ce23f10;
-L_0x12ce24180 .arith/mult 64, L_0x12ce24040, L_0x12ce24040;
-L_0x12ce24260 .arith/div 64, L_0x12ce24180, v0x12ce23c20_0;
-L_0x12ce24370 .shift/r 128, v0x12ce23d40_0, L_0x12ce23f10;
-L_0x12ce24450 .concat [ 64 64 0 0], L_0x12ce24260, L_0x130078058;
-L_0x12ce245b0 .arith/mult 128, L_0x12ce24370, L_0x12ce24450;
-L_0x12ce246d0 .shift/r 128, L_0x12ce245b0, L_0x12ce24040;
-    .scope S_0x12ce11e30;
+    .port_info 2 /INPUT 8 "mu";
+    .port_info 3 /INPUT 14 "r";
+    .port_info 4 /OUTPUT 64 "t";
+v000002c722993860_0 .net *"_ivl_2", 127 0, L_000002c7229c3b40;  1 drivers
+L_000002c722a17868 .functor BUFT 1, C4<000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v000002c722993140_0 .net *"_ivl_5", 119 0, L_000002c722a17868;  1 drivers
+v000002c7229934f0_0 .net "m1", 127 0, L_000002c7229c3e60;  1 drivers
+v000002c72297c500_0 .net "m2", 127 0, L_000002c7229c3960;  1 drivers
+v000002c72297b3f0_0 .net "m3", 127 0, L_000002c7229c4180;  1 drivers
+v000002c72297b490_0 .net "mu", 7 0, v000002c7229c3550_0;  1 drivers
+v000002c72297e490_0 .net "q", 63 0, v000002c7229c3d20_0;  1 drivers
+v000002c72297e530_0 .net "r", 13 0, v000002c7229c3dc0_0;  1 drivers
+v000002c72297e5d0_0 .var "t", 63 0;
+v000002c72297e670_0 .net "z", 127 0, v000002c7229c3a00_0;  1 drivers
+E_000002c7229c8340 .event anyedge, v000002c72297e5d0_0, v000002c72297e490_0;
+E_000002c7229c7f00 .event anyedge, v000002c72297e670_0, v000002c72297b3f0_0, v000002c72297e490_0;
+L_000002c7229c3e60 .shift/r 128, v000002c7229c3a00_0, v000002c7229c3dc0_0;
+L_000002c7229c3b40 .concat [ 8 120 0 0], v000002c7229c3550_0, L_000002c722a17868;
+L_000002c7229c3960 .arith/mult 128, L_000002c7229c3e60, L_000002c7229c3b40;
+L_000002c7229c4180 .shift/r 128, L_000002c7229c3960, v000002c7229c3dc0_0;
+    .scope S_000002c72297e300;
 T_0 ;
-    %wait E_0x12ce0c5c0;
-    %load/vec4 v0x12ce23b20_0;
-    %load/vec4 v0x12ce23750_0;
-    %load/vec4 v0x12ce23910_0;
+    %wait E_000002c7229c7f00;
+    %load/vec4 v000002c72297e670_0;
+    %load/vec4 v000002c72297b3f0_0;
+    %load/vec4 v000002c72297e490_0;
     %pad/u 128;
     %mul;
     %sub;
     %pad/u 64;
-    %store/vec4 v0x12ce23a70_0, 0, 64;
+    %store/vec4 v000002c72297e5d0_0, 0, 64;
     %jmp T_0;
     .thread T_0, $push;
-    .scope S_0x12ce11e30;
+    .scope S_000002c72297e300;
 T_1 ;
-    %wait E_0x12ce0a930;
-    %load/vec4 v0x12ce23910_0;
-    %load/vec4 v0x12ce23a70_0;
+    %wait E_000002c7229c8340;
+    %load/vec4 v000002c72297e490_0;
+    %load/vec4 v000002c72297e5d0_0;
     %cmp/u;
     %flag_or 5, 4;
     %jmp/0xz  T_1.0, 5;
-    %load/vec4 v0x12ce23a70_0;
-    %load/vec4 v0x12ce23910_0;
+    %load/vec4 v000002c72297e5d0_0;
+    %load/vec4 v000002c72297e490_0;
     %sub;
-    %assign/vec4 v0x12ce23a70_0, 0;
-    %jmp T_1.1;
+    %store/vec4 v000002c72297e5d0_0, 0, 64;
 T_1.0 ;
-    %load/vec4 v0x12ce23a70_0;
-    %assign/vec4 v0x12ce23a70_0, 0;
-T_1.1 ;
     %jmp T_1;
     .thread T_1, $push;
-    .scope S_0x12da041e0;
+    .scope S_000002c72297bff0;
 T_2 ;
-    %vpi_call 2 23 "$dumpfile", "barrett_reduction_tb.vcd" {0 0 0};
-    %vpi_call 2 24 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x12da041e0 {0 0 0};
+    %vpi_call 2 27 "$dumpfile", "barrett_reduction_tb.vcd" {0 0 0};
+    %vpi_call 2 28 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002c72297bff0 {0 0 0};
     %pushi/vec4 3651363, 0, 128;
-    %store/vec4 v0x12ce23d40_0, 0, 128;
+    %store/vec4 v000002c7229c3a00_0, 0, 128;
     %pushi/vec4 7681, 0, 64;
-    %store/vec4 v0x12ce23c20_0, 0, 64;
+    %store/vec4 v000002c7229c3d20_0, 0, 64;
+    %pushi/vec4 8192, 0, 14;
+    %store/vec4 v000002c7229c3dc0_0, 0, 14;
+    %pushi/vec4 32, 0, 8;
+    %store/vec4 v000002c7229c3550_0, 0, 8;
     %delay 10000, 0;
-    %vpi_call 2 33 "$display", "Input z: %d", v0x12ce23d40_0 {0 0 0};
-    %vpi_call 2 34 "$display", "Input q: %d", v0x12ce23c20_0 {0 0 0};
-    %vpi_call 2 35 "$display", "Output s: %d", v0x12ce23cb0_0 {0 0 0};
+    %vpi_call 2 39 "$display", "Input z: %d", v000002c7229c3a00_0 {0 0 0};
+    %vpi_call 2 40 "$display", "Input q: %d", v000002c7229c3d20_0 {0 0 0};
+    %vpi_call 2 41 "$display", "Input r: %d", v000002c7229c3dc0_0 {0 0 0};
+    %vpi_call 2 42 "$display", "Output s: %d", v000002c7229c3aa0_0 {0 0 0};
     %end;
     .thread T_2;
 # The file index is used to find the file name in the following table.

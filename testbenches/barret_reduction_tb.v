@@ -6,8 +6,8 @@ module barrett_reduction_tb;
     // Inputs
     reg [127:0] z;
     reg [63:0] q;
-    reg [7:0] mu,
-    reg [7:0] r,
+    reg [7:0] mu;
+    reg [13:0] r;
 
     // Outputs
     wire [63:0] t;
@@ -38,7 +38,8 @@ module barrett_reduction_tb;
         // Display results
         $display("Input z: %d", z);
         $display("Input q: %d", q);
-        $display("Output s: %d", t);
+        $display("Input r: %d", r);
+        $display("Output t: %d", t);
     end
 
 endmodule

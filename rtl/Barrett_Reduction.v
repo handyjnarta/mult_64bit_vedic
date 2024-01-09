@@ -10,8 +10,7 @@ module Barrett_Reduction(
 
     // Pre-computation
     // k = math.ceil(math.log2(q)) # number of bits in q
-    //wire [7:0] k = $clog2(q);
-
+    //wire [7:0] k = $clog2(q)
 
     // r = 2**k
     //wire [63:0] r = 1 << k;
@@ -35,16 +34,18 @@ module Barrett_Reduction(
     // t = z - m3 * q
     always @* begin
         t = z - m3 * q;
+    end
 
 
     // if t >= q:
     //     return t - q
     // else:
     //     return t
-   
-        if (t >= q) begin
+    always @* begin
+    if (t >= q) begin
             // r = t - q
-            t = t - q;
+        t = t - q;
+    end
     end
 
 endmodule

@@ -1,5 +1,5 @@
 $date
-	Tue Jan  2 21:56:12 2024
+	Tue Jan 09 20:45:44 2024
 $end
 $version
 	Icarus Verilog
@@ -9,18 +9,19 @@ $timescale
 $end
 $scope module barrett_reduction_tb $end
 $var wire 64 ! t [63:0] $end
-$var reg 64 " q [63:0] $end
-$var reg 128 # z [127:0] $end
+$var reg 8 " mu [7:0] $end
+$var reg 64 # q [63:0] $end
+$var reg 14 $ r [13:0] $end
+$var reg 128 % z [127:0] $end
 $scope module uut $end
-$var wire 64 $ q [63:0] $end
-$var wire 128 % z [127:0] $end
-$var wire 8 & r [7:0] $end
-$var wire 16 ' mu [15:0] $end
-$var wire 128 ( m3 [127:0] $end
-$var wire 128 ) m2 [127:0] $end
-$var wire 128 * m1 [127:0] $end
-$var wire 7 + k [6:0] $end
-$var reg 64 , t [63:0] $end
+$var wire 8 & mu [7:0] $end
+$var wire 64 ' q [63:0] $end
+$var wire 14 ( r [13:0] $end
+$var wire 128 ) z [127:0] $end
+$var wire 128 * m3 [127:0] $end
+$var wire 128 + m2 [127:0] $end
+$var wire 128 , m1 [127:0] $end
+$var reg 64 - t [63:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -29,17 +30,18 @@ $dumpall
 $end
 #0
 $dumpvars
-b101101001000 ,
-b1101 +
-b110111101 *
-b0 )
-b0 (
-b0 '
-b0 &
+b1101111001100100100010 -
+b0 ,
+b0 +
+b0 *
+b1101111011011100100011 )
+b10000000000000 (
+b1111000000001 '
+b100000 &
 b1101111011011100100011 %
-b1111000000001 $
-b1101111011011100100011 #
-b1111000000001 "
-b101101001000 !
+b10000000000000 $
+b1111000000001 #
+b100000 "
+b1101111001100100100010 !
 $end
 #10000

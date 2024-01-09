@@ -25,8 +25,9 @@ def modMult(a, b, q):
         return t
     
 # Test 1
-a = 1467
-b = 2489
-q = 7681
+a = 50572
+b = 34188
+q = 33164
 
 print(a,"x", b, "mod", q, "=", modMult(a, b, q))
+print("Expected ", (a*b)%q)
