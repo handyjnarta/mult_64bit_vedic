@@ -5,4 +5,4 @@ def Mod_Sub(A, B, q):
     
     return M
 
-print(Mod_Sub(4, 5, 10))
+print(Mod_Sub(12, 6, 4))

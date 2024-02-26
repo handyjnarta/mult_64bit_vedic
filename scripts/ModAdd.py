@@ -4,3 +4,5 @@ def Mod_Add(A, B, q):
         M = M - q
     
     return M
+
+print(Mod_Add(5, 7, 3))
