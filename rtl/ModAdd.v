@@ -34,7 +34,7 @@ module ModAdd
     end
 
     // datapath for addition
-    assign add = {1'b0, in_A} + {1'b0, in_B};
+    assign add = in_A +  in_B;
 
     // output
     always @(posedge clk or negedge rstn)
@@ -47,9 +47,9 @@ module ModAdd
         begin
             // Check if the sum is greater than or equal to q
             if (add[BIT_SIZE+1]) 
-                M <= add[BIT_SIZE-1:0];
+                M <= add[BIT_SIZE-1:0]  - in_q;
             else
-                M <= add[BIT_SIZE-1:0] - in_q;
+                M <= add[BIT_SIZE-1:0];
         end
     end
 

@@ -1,3 +1,6 @@
+`include "../rtl/ModAdd.v"
+`include "../rtl/ModSub.v"
+`include "../rtl/Barrett_Reduction.v"
 module Bu2Point
     #(parameter BIT_SIZE = 60)
     (
@@ -7,8 +10,8 @@ module Bu2Point
         input [BIT_SIZE - 1:0] A1,
         input [BIT_SIZE - 1:0] Y,
         input [BIT_SIZE - 1:0] q,
-        output reg [BIT_SIZE - 1:0] B0,
-        output reg [BIT_SIZE - 1:0] B1,
+        output [BIT_SIZE - 1:0] B0,
+        output [BIT_SIZE - 1:0] B1
     );
 
     // For operation result
@@ -67,5 +70,7 @@ module Bu2Point
 
     // datapath for substraction
     ModSub ModSub (clk,rstn,in_A0[BIT_SIZE-1:0],M[BIT_SIZE-1:0],in_q[BIT_SIZE-1:0],B1[BIT_SIZE-1:0]);
+
+
    
 endmodule

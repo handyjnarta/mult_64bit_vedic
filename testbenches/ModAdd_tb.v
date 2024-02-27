@@ -4,7 +4,7 @@
 module ModAdd_tb;
 
   // Parameters
-  parameter BIT_SIZE = 4;
+  parameter BIT_SIZE = 60;
   parameter CLK_PERIOD = 10;
 
   // Inputs
@@ -44,24 +44,11 @@ module ModAdd_tb;
     #((2 * CLK_PERIOD)) rstn = 1;
 
     // Test case 1
-    #((2 * CLK_PERIOD)) A = 8;
-    #((2 * CLK_PERIOD)) B = 3;
-    #((2 * CLK_PERIOD)) q = 2;
+    #((2 * CLK_PERIOD)) A = 512831;
+    #((2 * CLK_PERIOD)) B = 71923;
+    #((2 * CLK_PERIOD)) q = 31238;
     #((2 * CLK_PERIOD)) $display("Test Case 1: A=%d, B=%d, q=%d, M=%d", A, B, q, M);
 
-    // Test case 2
-    #((2 * CLK_PERIOD)) A = 5;
-    #((2 * CLK_PERIOD)) B = 7;
-    #((2 * CLK_PERIOD)) q = 3;
-    #((2 * CLK_PERIOD)) $display("Test Case 2: A=%d, B=%d, q=%d, M=%d", A, B, q, M);
-
-    // Test case 3
-    #((2 * CLK_PERIOD)) A = 12;
-    #((2 * CLK_PERIOD)) B = 6;
-    #((2 * CLK_PERIOD)) q = 4;
-    #((2 * CLK_PERIOD)) $display("Test Case 3: A=%d, B=%d, q=%d, M=%d", A, B, q, M);
-
-    // Add more test cases as needed
 
     // Stop simulation
     #((2 * CLK_PERIOD)) $stop;
