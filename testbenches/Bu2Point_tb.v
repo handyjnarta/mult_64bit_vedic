@@ -48,10 +48,10 @@ module Bu2Point_tb;
     #10 rstn = 1;
 
     // Apply inputs
-#10 A0 = 64'h1388;  // 64'h1388 is hexadecimal for 5000
-    #10 A1 = 64'h1B58;  // 64'h1B58 is hexadecimal for 7000
-    #10 Y =  64'hBB8;   // 64'hBB8 is hexadecimal for 3000
-    #10 q =  64'h2328;  // 64'h2328 is hexadecimal for 9000
+    #10 A0 = 5000; // Initial values, adjust as needed
+    #10 A1 = 7000;
+    #10 Y = 3000;
+    #10 q = 9000;
 
     // Monitor outputs
     #100 $display("B0 = %0d, B1 = %0d", B0, B1);
