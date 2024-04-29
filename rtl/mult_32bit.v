@@ -21,8 +21,9 @@
 
 
 module mult_32bit (
-    a, b, c
+    CLK, a, b, c
 );
+    input CLK;
     input [32:0] a;
     input [32:0] b;
     output [63:0] c;
