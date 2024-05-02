@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 26.04.2024 20:20:57
+// Create Date: 2024/05/01 21:26:55
 // Design Name: 
 // Module Name: karatsuba64_tb
 // Project Name: 
@@ -20,47 +20,70 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module karatsuba64_tb;
+module karatsuba64_tb();
+    // Declare signals for UUT inputs and outputs
+    reg CLK;
+    reg [63:0] x, y;
+    wire [127:0] product;
+  
+    // Test parameters
+    parameter N_TESTS  = 10;
+    reg correct = 0;
+    reg [$clog2(N_TESTS)-1:0] TOTAL_CORRECT = 0;
+    reg [$clog2(N_TESTS)-1:0] TEST_NO       = -1;
 
-  // Declare signals for UUT inputs and outputs
-  reg CLK;
-  reg [63:0] x, y;
-  wire [127:0] product;
-
-  // Instantiate the UUT
-  karatsuba64 uut (
-    .clk(CLK),
-    .x(x),
-    .y(y),
-    .product(product)
-  );
-
-  // Clock generation
-  always begin
-    #5 CLK = ~CLK; // Generate a clock signal with 10 ns period
-  end
+    // Instantiate the UUT
+    karatsuba64 uut (
+        .clk(CLK),
+        .x(x),
+        .y(y),
+        .product(product)
+    );
+    
+    reg [127:0] expected;
+    reg [127:0] prev_expedted;
 
   // Initialize inputs
   initial begin
-    CLK = 0;
-    x = 64'd123456789;
-    y = 64'd20;
+    CLK = 1;
+    for (integer i = 0; i < N_TESTS; i = i+1) begin
+      
+          TEST_NO <= TEST_NO + 1;
+       
+          // Edge 1
+          #1
+          CLK <= ~CLK;
+         
+          ////////////////////////////////////////      
+          // Edge 2 
+          #1
+          CLK <= ~CLK;
+          
+          // Get correct answers
+          if (product == prev_expedted) begin
+              correct <= 1;
+              TOTAL_CORRECT <= TOTAL_CORRECT + 1;
+          end
+          else begin
+              correct <= 0;     
+          end
+          
+          // Get random inputs
+          x <= $random % 64'd17936324404867310943;  //random
+          y <= $random % 64'd17936324404867310943;  //random
+          prev_expedted = expected;
+          expected = x * y;
+
+      end
+      
+    // Finish simulation after looping
+    $finish;
+    
   end
 
   // Monitor the output
   always @(posedge CLK) begin
     $display("Result: %h", product);
-  end
-
-  // Stimulus generation
-  initial begin
-    // Wait for a few clock cycles
-    #100;
-
-    // Add more test cases here if needed
-
-    // Finish simulation
-    $finish;
   end
 
 endmodule
