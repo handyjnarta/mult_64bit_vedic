@@ -1,25 +1,29 @@
-`timescale 1ns/1ps
-`include "../rtl/Barrett_Reduction.v"
-`include "../rtl/full_adder.v"
-`include "../rtl/full_adder4bit.v"
-`include "../rtl/ha.v"
-`include "../rtl/half_adder.v"
-`include "../rtl/mult_2bit.v"
-`include "../rtl/mult_4bit.v"
-`include "../rtl/mult_8bit.v"
-`include "../rtl/mult_16bit.v"
-`include "../rtl/mult_32bit.v"
-`include "../rtl/mult_64bit.v"
-`include "../rtl/rca_4bit.v"
-`include "../rtl/rca_8bit.v"
-`include "../rtl/rca_16bit.v"
-`include "../rtl/rca_32bit.v"
-`include "../rtl/rca_64bit.v"
-`include "../rtl/Vedic_Barrett.v"
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02.05.2024 16:35:45
+// Design Name: 
+// Module Name: Vedic_Barret_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module Vedic_Barrett_tb;
 
     // Inputs
+    reg clk;        // Asynchronous clock
     reg [63:0] a;
     reg [63:0] b;
     reg [63:0] q;
@@ -29,8 +33,9 @@ module Vedic_Barrett_tb;
     // Outputs
     wire [63:0] t;
 
-    // Instantiate the Barrett_Reduction module
+    // Instantiate the Vedic_Barrett module
     Vedic_Barrett uut (
+        .clk(clk),
         .a(a),
         .b(b),
         .q(q),
@@ -41,10 +46,7 @@ module Vedic_Barrett_tb;
 
     // Initial block for testbench
     initial begin
-
-        $dumpfile("Vedic_Barrett_tb.vcd");
-        $dumpvars(0,Vedic_Barrett_tb);
-        // Test case 1
+        clk = 0;    // Initialize clock
         a = 146712; // Replace with your desired input value
         b = 248912;
         q = 768112; // Replace with your desired input value
@@ -52,13 +54,17 @@ module Vedic_Barrett_tb;
         k = 20;
 
         // Add a delay to allow the computation to complete
-        #10;
+        #100;
 
         // Display results
         $display("Input a: %d", a);
         $display("Input b: %d", b);
         $display("Input q: %d", q);
         $display("Output t: %d", t);
-    end 
+        $finish; // Finish simulation
+    end
+
+    // Toggle clock for simulation
+    always #5 clk = ~clk;
 
 endmodule

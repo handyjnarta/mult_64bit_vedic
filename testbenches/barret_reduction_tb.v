@@ -1,9 +1,32 @@
 `timescale 1ns/1ps
-`include "../rtl/Barrett_Reduction.v"
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02.05.2024 16:38:17
+// Design Name: 
+// Module Name: barrett_reduction_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+`timescale 1ns/1ps
+
 
 module barrett_reduction_tb;
 
     // Inputs
+    reg clk;            // Asynchronous clock
+    reg rst;            // Synchronous reset
     reg [127:0] z;
     reg [63:0] q;
     reg [7:0] mu;
@@ -14,15 +37,20 @@ module barrett_reduction_tb;
 
     // Instantiate the Barrett_Reduction module
     Barrett_Reduction uut (
+        .clk(clk),      // Connect clk to the module
+        .rst(rst),      // Connect rst to the module
         .z(z),
         .q(q),
         .mu(mu),
-        .r(r),
         .t(t)
     );
 
     // Initial block for testbench
     initial begin
+        clk = 0;        // Initialize clk
+        rst = 1;        // Assert synchronous reset
+        #5;             // Wait a few time units
+        rst = 0;        // Deassert synchronous reset
 
         $dumpfile("barrett_reduction_tb.vcd");
         $dumpvars(0,barrett_reduction_tb);
@@ -40,6 +68,10 @@ module barrett_reduction_tb;
         $display("Input q: %d", q);
         $display("Input r: %d", r);
         $display("Output t: %d", t);
+        $finish;        // Finish simulation
     end
+
+    // Toggle clock for simulation
+    always #5 clk = ~clk;
 
 endmodule
