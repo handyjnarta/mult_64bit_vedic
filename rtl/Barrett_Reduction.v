@@ -2,42 +2,42 @@
 
 module Barrett_Reduction(
     input clk,      // Asynchronous clock
-    input rst,      // Synchronous reset
     input [127:0] z,
     input [63:0] q,
     input [30:0] mu,
     input [7:0] k,
     output reg [63:0] t
-);
+);  
+    reg [127:0] z_in;
+    reg [63:0] q_in;
+    reg [30:0] mu_in;
+    reg [7:0] k_in;  
 
-    reg [127:0] m1;
-    reg [127:0] m2;
-    reg [127:0] m3;
-
-    always @(posedge clk or negedge rst) begin
-        if (!rst) begin
-            m1 <= 128'h0;
-            m2 <= 128'h0;
-            m3 <= 128'h0;
-            t <= 64'h0;
-        end else begin
-            m1 <= z >> k;
-            m2 <= m1 * mu;
-            m3 <= m2 >> k;
-            t <= z - m3 * q;
+    always @(posedge clk) begin
+         begin
+           z_in <= z;
+           q_in <= q;
+           mu_in <= mu;
+           k_in <= k;
         end
     end
     
-    always @(posedge clk or negedge rst) begin
-        if (!rst) begin
-            // Reset t when rst is active
-            t <= 64'h0;
-        end else begin
-            if (t >= q) begin
-                // r = t - q
-                t <= t - q;
+     wire [127:0] m1 = z_in >> k_in;
+     wire [127:0] m2 = m1 * mu_in;
+     wire [127:0] m3 = m2 >> k_in;
+     wire [63:0] t_out = z_in - m3 * q_in;    
+    
+    always @(posedge clk) 
+    begin
+            if (t_out >= q_in) 
+            begin
+            // r = t - q
+            t <= t_out - q_in;
             end
-        end
+            
+            else begin
+            t <= t_out;
+            end
     end
 
 endmodule
