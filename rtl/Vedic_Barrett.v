@@ -19,8 +19,8 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module Vedic_Barrett (
-    input wire clk,       // Asynchronous clock input
+module vedic_barrett (
+    input wire clk,
     input [63:0] a,
     input [63:0] b,
     input [63:0] q,
@@ -33,7 +33,7 @@ module Vedic_Barrett (
 
     // Instantiate modules
     vedic_64_dsp mult1 (
-        .clk(clk),    // Connect clk to the module
+        .CLK(clk),    // Connect clk to the module
         .a(a[63:0]),
         .b(b[63:0]),
         .result(result[127:0])
