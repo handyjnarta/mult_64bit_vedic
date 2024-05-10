@@ -57,8 +57,25 @@ module Barrett_Reduction_tb;
         k = 20;
 
         // Add a delay to allow the computation to complete
-        #10;
+        # 2;
+        z = 365183661; // Replace with your desired input value
+        q = 768009; // Replace with your desired input value
+        mu = 1431447;
+        k = 20;
+        
+        # 2;
+        z = 365183654; // Replace with your desired input value
+        q = 768018; // Replace with your desired input value
+        mu = 1431447;
+        k = 20;
+        
+        # 2;
+        z = 365183545; // Replace with your desired input value
+        q = 768099; // Replace with your desired input value
+        mu = 1431447;
+        k = 20;
 
+        # 10
         // Display results
         $display("Input z: %d", z);
         $display("Input q: %d", q);
