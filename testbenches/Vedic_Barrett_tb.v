@@ -34,7 +34,7 @@ module Vedic_Barrett_tb;
     wire [63:0] t;
 
     // Instantiate the Vedic_Barrett module
-    Vedic_Barrett uut (
+    vedic_barrett uut (
         .clk(clk),
         .a(a),
         .b(b),
@@ -65,6 +65,6 @@ module Vedic_Barrett_tb;
     end
 
     // Toggle clock for simulation
-    always #5 clk = ~clk;
+    always #10 clk = ~clk;
 
 endmodule
